@@ -1,28 +1,41 @@
-# React + TypeScript + Vite
+# Проект [ApiClicker](https://github.com/AlexFromNorth/ApiClicker) | Frontend / Api
+### 📜 Описание:
+Single Page Application созданная с Vite. Реализован кликер отправляющие данные на Api и ожидающий ответа.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+### ⚙️ Условия задания:
+* Приложение имеет кнопку Кликнуть и умеет отправлять количество кликов на сервер.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Пользователь n-раз нажимает на кнопку, количество нажатий суммирается 1 секунду, затем отправляется запрос. Если в течении 1 секунды на кнопку опять нажали, таймер перезапускается. 
 
-## Expanding the ESLint configuration
+* Механизм отправки запроса реализовать через custom hook (без использования Redux и подобных).
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+* Во время ожидания ответа от сервера кнопку необходимо заблокировать и показать загрузку.
 
-- Configure the top-level `parserOptions` property like this:
+* Ответ от сервера изобразить отдельным компонентом.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+* Учесть, что от сервера может прийти ошибка. Использование библиотеки mui приветствуется.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# ApiClicker
+
+
+### 🥞 Стек:
+
+`HTML5` `CSS3` `JavaScript ES6+` `React` `Material UI` `TypeScript` `axios`
+
+### 💽 Установка и запуск:
+
+1. Склонировать репозиторий в текущую папку:
+
+```git clone https://github.com/AlexFromNorth/ApiClicker.git ```
+
+2. Установить зависимости:
+
+```yarn install```
+
+3. Запустить проект в режиме разработки:
+
+```yarn run dev или yarn start```
+<br />
+<br />
+<img src="images/main.png" alt="demo">
+
