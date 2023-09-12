@@ -1,6 +1,9 @@
 import React, { useState, FC } from "react";
 import useUpdateClicks from "../hooks/useUpdateClicks";
 import useUpdateClicksInterval from "../hooks/useUpdateClicksInterval";
+import { Box, Button, Icon, Typography } from "@mui/material";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import WarningAmberOutlinedIcon from '@mui/icons-material/WarningAmberOutlined';
 
 const Clicker: FC = ({ clicks, setClicks, setClickerEvent, clickerEvent }) => {
   const [displayedClicks, setDisplayedClicks] = useState(0);
@@ -16,16 +19,46 @@ const Clicker: FC = ({ clicks, setClicks, setClickerEvent, clickerEvent }) => {
   );
 
   return (
-    <div>
-      <button
-        className={clickerEvent ? "disabled btn" : "" + 'btn'}
+    <Box sx={{ width: "300px" }}>
+      <Button
+        color="warning"
+        variant="contained"
+        className={clickerEvent ? "disabled btn" : "" + "btn"}
         onClick={() => setClicks((count) => count + 1)}
+        sx={{
+          color: "black",
+          width: "100%",
+        }}
       >
-        Кликнуть
-      </button>
-      <p>{clicks}</p>
-      <h1>Клики: {displayedClicks}</h1>
-    </div>
+        {!clickerEvent ? 'Кликнуть' : 'Loading...'}
+      </Button>
+      <Box
+        sx={{
+          backgroundColor: "#9bd0f9",
+          color: "black",
+          borderRadius: "4px",
+          margin: "10px 0",
+          display: "flex",
+          padding: "10px",
+        }}
+      >
+        <InfoOutlinedIcon sx={{ marginRight: "10px" }} />
+        <Typography> Кликнули {clicks} раз</Typography>
+      </Box>
+      <Box
+        sx={{
+          backgroundColor: "#ffbf60",
+          color: "black",
+          borderRadius: "4px",
+          margin: "10px 0",
+          display: "flex",
+          padding: "10px",
+        }}
+      >
+        <WarningAmberOutlinedIcon sx={{ marginRight: "10px" }} />
+        <Typography> По версии сервера: {displayedClicks} раз</Typography>
+      </Box>
+    </Box>
   );
 };
 

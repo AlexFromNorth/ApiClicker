@@ -10,8 +10,7 @@ const useUpdateClicks = (
 ) => {
   useEffect(() => {
     if (displayedClicks !== 0) {
-      console.log(clicks)
-      console.log(!clicks)
+
       const apiUrl = "https://lk.zont-online.ru/api/button_count";
       const headers = {
         "X-ZONT-Client": "jacklex@bk.ru",
