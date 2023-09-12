@@ -3,34 +3,47 @@ import useUpdateClicks from "../hooks/useUpdateClicks";
 import useUpdateClicksInterval from "../hooks/useUpdateClicksInterval";
 import { Box, Button, Icon, Typography } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import WarningAmberOutlinedIcon from '@mui/icons-material/WarningAmberOutlined';
+import WarningAmberOutlinedIcon from "@mui/icons-material/WarningAmberOutlined";
+import { ClickerProps } from "../types/types";
 
-const Clicker: FC = ({ clicks, setClicks, setClickerEvent, clickerEvent }) => {
+const Clicker: FC<ClickerProps> = ({
+  clicks,
+  setClicks,
+  setClickerEvent,
+  clickerEvent,
+}) => {
   const [displayedClicks, setDisplayedClicks] = useState(0);
 
-  useUpdateClicks(displayedClicks, setDisplayedClicks, clicks, setClickerEvent);
+  useUpdateClicks({
+    clicks,
+    displayedClicks,
+    setDisplayedClicks,
+    setClickerEvent,
+  });
 
-  useUpdateClicksInterval(
+  useUpdateClicksInterval({
     clicks,
     setClicks,
     displayedClicks,
     setDisplayedClicks,
-    setClickerEvent
-  );
+    setClickerEvent,
+  });
+
+  //   console.log(clickerEvent)
 
   return (
     <Box sx={{ width: "300px" }}>
       <Button
         color="warning"
         variant="contained"
-        className={clickerEvent ? "disabled btn" : "" + "btn"}
+        className={clickerEvent ? "disabled btn" : "btn"}
         onClick={() => setClicks((count) => count + 1)}
         sx={{
           color: "black",
           width: "100%",
         }}
       >
-        {!clickerEvent ? 'Кликнуть' : 'Loading...'}
+        {!clickerEvent ? "Loading..." : "Кликнуть"}
       </Button>
       <Box
         sx={{

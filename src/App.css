@@ -43,7 +43,6 @@
 
 
 .disabled{
-  /* transition: 1s; */
   pointer-events: none;
   background-color: red;
 }

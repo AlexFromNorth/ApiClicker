@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useEffect } from "react";
+import { UpdateClicksProps } from "../types/types";
 
 // Кастомный хук для обновления отображаемых кликов при изменении clicks
-const useUpdateClicks = (
+const useUpdateClicks = ({
   displayedClicks,
   setDisplayedClicks,
   clicks,
   setClickerEvent
-) => {
+}:UpdateClicksProps) => {
   useEffect(() => {
     if (displayedClicks !== 0) {
 
