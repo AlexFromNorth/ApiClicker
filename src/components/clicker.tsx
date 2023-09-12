@@ -29,8 +29,6 @@ const Clicker: FC<ClickerProps> = ({
     setClickerEvent,
   });
 
-  //   console.log(clickerEvent)
-
   return (
     <Box sx={{ width: "300px" }}>
       <Button
@@ -43,7 +41,7 @@ const Clicker: FC<ClickerProps> = ({
           width: "100%",
         }}
       >
-        {!clickerEvent ? "Loading..." : "Кликнуть"}
+        {!!clickerEvent ?( <span>Loading...</span> ):( <span>Кликнуть</span>)}
       </Button>
       <Box
         sx={{
